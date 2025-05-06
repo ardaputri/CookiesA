@@ -97,7 +97,7 @@
 
 
 
-/about section start/
+/*about section start*/
 .container{
     position: relative;
 }
@@ -139,17 +139,18 @@
     background-color:#b2744c;
     color:white;
 }
-@media screen and (max-width:766px){
+@media screen and (max-width:982px){
     #about p{
         font-size:8px;
     }
-    #about{
-        height: 120px;
+}
+@media screen and (max-width:766px){
+    #about p{
+        font-size:15px;
     }
 }
     
-
-/about section end/
+/*about section end*/
 #products {
     margin-top: 50px;
   }
@@ -158,7 +159,7 @@
 
 
 
-/top cards start/
+/*top cards start*/
 #top-cards{
     width: 100%;
    /* height: 60vh;*/
@@ -196,7 +197,7 @@
 
 
 
-/menu start/
+/*menu start*/
 #menu{
     width: 100%;
     margin-top: 60px;
@@ -234,10 +235,10 @@
     cursor: pointer;
 
 }
-/menu end/
+/*menu end*/
 
 
-/top cards end/ 
+/*top cards end*/ 
 
 .image-container img {
     width: 240px;
