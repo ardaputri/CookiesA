@@ -5,13 +5,13 @@
     font-family: 'Merriweather', serif;
   }
   .all-content{
-       background: rgb(167, 13, 38);
+       background: rgb(194, 98, 19);
   }
   html ::-webkit-scrollbar-track{
-       background: pink;
+       background: rgb(205, 97, 34);
   }
   html ::-webkit-scrollbar-thumb{
-       background: rgb(215, 47, 75);
+       background: rgb(166, 99, 23);
        border-radius: 10px;
   }
   html ::-webkit-scrollbar{
@@ -20,7 +20,7 @@
 
 /* navbar start */
 #navbar {
-    background-color: rgb(211, 72, 151);
+    background-color: rgb(203, 98, 53);
 }
 #logo img{
     border-radius: 10px;
