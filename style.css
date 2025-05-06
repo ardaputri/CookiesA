@@ -1,352 +1,277 @@
-*{
-    margin: 0;
-    padding: 0 ;
-    box-sizing: border-box ;
-    font-family: 'Merriweather', serif;
-  }
-  .all-content{
-       background: rgb(194, 98, 19);
-  }
-  html ::-webkit-scrollbar-track{
-       background: rgb(205, 97, 34);
-  }
-  html ::-webkit-scrollbar-thumb{
-       background: rgb(166, 99, 23);
-       border-radius: 10px;
-  }
-  html ::-webkit-scrollbar{
-     width: 10px;
-  }
-
-/* navbar start */
-#navbar {
-    background-color: rgb(203, 98, 53);
-}
-#logo img{
-    border-radius: 10px;
-    width: 160px;
-    margin-left: 40px;
-}
-.navbar-nav{
-    margin-left: 50px;
-}
-.nav-item .nav-link{
-    color:black;
-    margin-left: 10px;
-    font-weight: bold;
-    transition: 0.5;
-}
-.nav-item .nav-link{
-    background:white;
-    border-radius: 5px;
-    color:black;
-}
-#navbar form button{
-    background: black;
-    color: white;
-    border: 1px solid white;
-}
-/* navbar end */
-
-
-
-
-
-/*home section :start */
-#home {
-    width: 100%;
-    height: 90vh;
-    background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url(./cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTA4L3JtNjgyZGVzaWduYmF0Y2gyLXJlbWl4LWF3LTAzLmpwZw.webp);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 88%;
-}
-#home .content{
-    padding-top: 210px;
-    margin-left: 56px;
-}
-#home .content h3{
-    font-size: 50px;
-    color: white;
-}
-#home .content p{
-    margin-top: 10px;
-    color: white;
-}
-#btn{
-    width: 150px;
-    height: 36px;
-    margin-top: 20px;
-    background: white;
-    border-radius: 5px;
-    font-weight: bold;
-    border: none;
-    transition: 0.5s ease;
-    cursor: pointer;
-}
-#btn:hover{
-    background: chocolate;
-    color: white;
-}
-/*home section :end */
-
-
-
-
-
-
-
-
-/*about section start*/
-.container{
-    position: relative;
-}
-#about{
-    width: 100%;
-    height: 70px;
-}
-#about .container{
-    padding-top: 70px;
-}
-.heading{
-    text-align:center;
-    margin-bottom: 50px;
-    color:black;
-    font-size: 30px;
-    font-weight: bold;
-}
-.heading span{
-    color:#b2744c;
-}
-#about .card{
-    border-radius:10px;
-}
-#about .card img{
-    border-radius:10px;
-}
-#about-btn{
-    width: 200px;
-    height: 36px;
-    background:transparent;
-    border:2px solid #b2744c;
-    color:#b2744c;
-    border-radius:5px;
-    font-weight: bold;
-    transition: 0,5s;
-    cursor: pointer;
-}
-#about-btn:hover{
-    background-color:#b2744c;
-    color:white;
-}
-@media screen and (max-width:766px){
-    #about p{
-        font-size:8px;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>Simple Messaging App</title>
+  <style>
+    /* Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
     }
-    #about{
-        height: 120px;
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      background: #f0f2f5;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      max-height: 600px;
+      max-width: 350px;
+      margin-left: auto;
+      margin-right: auto;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      overflow: hidden;
+      color: #333;
     }
-}
-    
 
-/*about section end*/
-#products {
-    margin-top: 50px;
-  }
+    header {
+      background-color: #4267b2;
+      color: white;
+      padding: 16px 20px;
+      font-size: 1.25rem;
+      font-weight: 600;
+      text-align: center;
+      user-select: none;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-around;
+      background-color: #fff;
+      padding: 10px 0;
+      border-bottom: 1px solid #ddd;
+    }
+
+    nav button {
+      background: none;
+      border: none;
+      color: #4267b2;
+      font-weight: bold;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    nav button:hover {
+      color: #365899;
+    }
+
+    .section {
+      display: none;
+      flex-direction: column;
+      flex: 1 1 auto;
+      padding: 10px;
+      overflow-y: auto;
+      gap: 8px;
+      background: #e5ddd5;
+      transition: opacity 0.5s ease;
+    }
+
+    .active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .message {
+      max-width: 80%;
+      padding: 10px 14px;
+      border-radius: 18px;
+      font-size: 0.9rem;
+      line-height: 1.3;
+      word-wrap: break-word;
+      position: relative;
+      box-shadow: 0 1px 1.5px rgba(0,0,0,0.15);
+      user-select: text;
+    }
+    .message.user {
+      align-self: flex-end;
+      background-color: #dcf8c6;
+      border-bottom-right-radius: 4px;
+    }
+    .message.system {
+      align-self: flex-start;
+      background-color: white;
+      border-bottom-left-radius: 4px;
+    }
+    .timestamp {
+      font-size: 0.7rem;
+      color: #888;
+      margin-top: 4px;
+      text-align: right;
+      user-select: none;
+    }
+
+    footer {
+      padding: 10px 12px;
+      background-color: white;
+      border-top: 1px solid #ddd;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    textarea {
+      flex: 1;
+      resize: none;
+      padding: 8px 12px;
+      border-radius: 20px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      font-family: inherit;
+      max-height: 100px;
+      min-height: 36px;
+      line-height: 1.3;
+    }
+    textarea:focus {
+      border-color: #4267b2;
+      outline: none;
+      box-shadow: 0 0 5px #4267b2;
+    }
+    button {
+      background-color: #4267b2;
+      border: none;
+      color: white;
+      padding: 10px 14px;
+      border-radius: 20px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.3s ease;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+    }
+    button:disabled {
+      background-color: #90b3f9;
+      cursor: not-allowed;
+    }
+    button:hover:not(:disabled) {
+      background-color: #365899;
+    }
+
+    /* Scrollbar style for main */
+    .section::-webkit-scrollbar {
+      width: 6px;
+    }
+    .section::-webkit-scrollbar-thumb {
+      background-color: rgba(0,0,0,0.15);
+      border-radius: 3px;
+    }
+    .section::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
+  </style>
+</head>
+<body>
+  <header>Messaging App</header>
+  <nav>
+    <button id="homeBtn">Home</button>
+    <button id="contactBtn">Contact</button>
+  </nav>
   
+  <div id="home" class="section active">
+    <main id="messages"></main>
+    <footer>
+      <textarea id="inputMessage" rows="1" placeholder="Type your message..." aria-label="Message input"></textarea>
+      <button id="sendBtn" aria-label="Send message" disabled>
+        &#9658;
+      </button>
+    </footer>
+  </div>
 
+  <div id="contact" class="section">
+    <h2>Contact Us</h2>
+    <p>If you have any questions, feel free to reach out!</p>
+    <p>Email: support@example.com</p>
+  </div>
 
+  <script>
+    (function() {
+      const messagesContainer = document.getElementById('messages');
+      const inputMessage = document.getElementById('inputMessage');
+      const sendBtn = document.getElementById('sendBtn');
+      const homeSection = document.getElementById('home');
+      const contactSection = document.getElementById('contact');
+      const homeBtn = document.getElementById('homeBtn');
+      const contactBtn = document.getElementById('contactBtn');
 
-
-/*top cards start*/
-#top-cards{
-    width: 100%;
-   /* height: 60vh;*/
-    background: #f7f5f2;
-   
-}
-.heading2{
-    color:black;
-    text-align: center;
-    font-size: 30px;
-    font-weight: bold;
-}
-.heading2 span{
-      color:#b2744c;
-}
-#top-cards .container{
-     margin-top: 30px;
-}
-#top-cards .card{
-    border-radius:10px;
-    transition:0.5s;
-    cursor: pointer;
-}
-#top-cards .card img{
-    border-radius:10px;
-}
-#top-cards .card:hover{
-    transform: translateY(-10px);
-
-}
-
-
-  
-
-
-
-
-/*menu start*/
-#menu{
-    width: 100%;
-    margin-top: 60px;
-}
-.heading3{
-    text-align:center;
-    font-size: 30px;
-    color:#b2744c;
-    font-weight:bold;
-    border-bottom: 2px solid #b2744c;
-}
-#container2{
-    margin-top:20px;
-}
-#menu .card{
-    box-shadow:cornsilk(149, 157, 165, 0, 2) 0px  8px 24px;
-}
-.star i{
-    color:#b2744c;    
-}
-#menu h3{
-    text-align:center;
-    color:#b2744c;
-    margin-top: 10px;
-    font-size: 25px;
-}
-#menu p{
-    font-size: 16px;
-    color:#b2744c;
-    padding-top: 10px;
-
-}
-#menu p span{
-    float: right;
-    cursor: pointer;
-
-}
-/*menu end*/
-
-
-/*top cards end*/ 
-
-.image-container img {
-    width: 240px;
-}
-.image-container{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: center;
-}
-.card2{
-    width: 270px;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: center;
-}
-
-* contact start */
-#contact{
-    width: 100%;
-    height: 100vh;
-    padding-top: 70px;
-}
-
-#contact .container{
-    width: 100%;
-    height: 80vh;
-    background: linear-gradient(90deg, white 80%, #b2744c 20%);
-    border-radius: 10px;
-}
-
-.heading6{
-    font-size: 30px;
-    font-weight: bold;
-    margin-top: 70px;
-}
-
-.heading6 span{
-    color: #b2744c;
-}
-
-#contact p{
-    font-weight: bold;
-    font-size: 13px;
-    color: black;
-}
-
-#contact input{
-    width: 360px;
-    border: none;
-    border-bottom: 1px solid #b2744c;
-}
-
-    #contact-btn{
-        width: 200px;
-        height: 36px;
-        border: none;
-        background: #b2744c;
-        color: white;
-        font-weight: bold;
-        margin-top: 30px;
-        cursor: pointer;
-    }
-    
-    #col{
-        width: 40%;
-        height: 56vh;
-        background: black;
-        margin-top: 78px;
-    }
-    
-    #contact h1{
-        color: white;
-        font-size: 25px;
-        margin-top: 10px;
-        margin-left: 10px;
-    }
-    
-    #contact #col p{
-        font-size: 15px;
-        color: white;
-        margin-left: 13px;
-        margin-top: 30px;
-    }
-    @media screen and (max-width: 766px) {
-        #contact .container {
-          background: white;
-        }
-      
-        #col {
-          width: 100%;
-          background: #b2744c;
-        }
-      
-        #contact {
-          height: 150vh;
-        }
+      // Load messages from localStorage or empty array
+      let messages = [];
+      try {
+        const loaded = localStorage.getItem('messagesAppMessages');
+        if (loaded) messages = JSON.parse(loaded);
+      } catch(e) {
+        messages = [];
       }
-      
-      @media screen and (max-width: 400px) {
-        #contact input {
-          width: 250px;
+
+      // Format timestamp to HH:MM AM/PM
+      function formatTimestamp(ts) {
+        const d = new Date(ts);
+        const h = d.getHours() % 12 || 12;
+        const m = d.getMinutes().toString().padStart(2, '0');
+        const ampm = d.getHours() >= 12 ? 'PM' : 'AM';
+        return h + ':' + m + ' ' + ampm;
+      }
+
+      // Render all messages
+      function renderMessages() {
+        messagesContainer.innerHTML = '';
+        for (const msg of messages) {
+          const msgElem = document.createElement('div');
+          msgElem.className = 'message ' + (msg.user ? 'user' : 'system');
+          msgElem.textContent = msg.text;
+          const tsElem = document.createElement('div');
+          tsElem.className = 'timestamp';
+          tsElem.textContent = formatTimestamp(msg.timestamp);
+          msgElem.appendChild(tsElem);
+          messagesContainer.appendChild(msgElem);
+        }
+        // Scroll to the latest message
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      }
+
+      // Handle sending messages
+      function sendMessage() {
+        const text = inputMessage.value.trim();
+        if (text) {
+          const message = {
+            text: text,
+            timestamp: Date.now(),
+            user: true
+          };
+          messages.push(message);
+          localStorage.setItem('messagesAppMessages', JSON.stringify(messages));
+          renderMessages();
+          inputMessage.value = '';
+          sendBtn.disabled = true;
         }
       }
 
-      #card h3 {
-        text-align: left;
-        margin-left:10px;
-      }
+      // Event listeners
+      inputMessage.addEventListener('input', () => {
+        sendBtn.disabled = !inputMessage.value.trim();
+      });
+
+      sendBtn.addEventListener('click', sendMessage);
+
+      // Navigation
+      homeBtn.addEventListener('click', () => {
+        homeSection.classList.add('active');
+        contactSection.classList.remove('active');
+      });
+
+      contactBtn.addEventListener('click', () => {
+        contactSection.classList.add('active');
+        homeSection.classList.remove('active');
+      });
+
+      // Initial render
+      renderMessages();
+    })();
+  </script>
+</body>
+</html>
